@@ -19,7 +19,7 @@ app.post("/", urlencodedParser, (req, res) => {
     if (!req.body) return res.sendStatus(400);
     const note = data.filter(n => n.email === req.body.email)[0]?.file;
     if (note) {
-        const url = 'http://localhost:5000'
+        const url = 'http://localhost:5000';
         return res.status(200).redirect(`${url}/storage/${note}`);
     } else {
         return res.redirect('/');
